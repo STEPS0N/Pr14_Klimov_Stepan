@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace Regex_Klimov.Windows
 {
@@ -8,7 +10,9 @@ namespace Regex_Klimov.Windows
     public partial class Add : Window
     {
         public Classes.Passport EditPassport;
-        
+        private string selectedImagePath;
+
+
         public Add(Classes.Passport EditPassport)
         {
             InitializeComponent();
@@ -39,8 +43,29 @@ namespace Regex_Klimov.Windows
             }
         }
 
+        private void SelectImage(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
+            openFileDialog.Multiselect = false;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    selectedImagePath = openFileDialog.FileName;
+                    MessageBox.Show("Изображение выбрано!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка!");
+                }
+            }
+        }
+
         private void AddPassport(object sender, RoutedEventArgs e)
         {
+
             if (string.IsNullOrEmpty(Name.Text) || !Classes.Common.CheckRegex.Match("^[А-ЯЁ][а-яё]*$", Name.Text))
             {
                 MessageBox.Show("Неправильно указано имя пользователя!");
@@ -110,6 +135,11 @@ namespace Regex_Klimov.Windows
             EditPassport.SeriesAndNumber = SeriesAndNumber.Text;
             EditPassport.DateOfBirth = DateOfBirth.Text;
             EditPassport.PlaceOfBirth = PlaceOfBirth.Text;
+
+            if (!string.IsNullOrEmpty(selectedImagePath))
+            {
+                EditPassport.Picture = selectedImagePath;
+            }
 
             MainWindow.init.LoadPassport();
             this.Close();

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Паспортный стол" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
-        <ListView x:Name="lv_passport" Margin="10,10,10,40">
+        <ListView x:Name="lv_passport" Margin="0,10,10,40" HorizontalAlignment="Right" Width="780">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Имя" Width="100" DisplayMemberBinding="{Binding Name}"/>
@@ -19,6 +19,13 @@
                     <GridViewColumn Header="Серия и номер" Width="100" DisplayMemberBinding="{Binding SeriesAndNumber}"/>
                     <GridViewColumn Header="Дата рождения" Width="100" DisplayMemberBinding="{Binding DateOfBirth}"/>
                     <GridViewColumn Header="Место рождения" Width="100" DisplayMemberBinding="{Binding PlaceOfBirth}"/>
+                    <GridViewColumn Header="Изображение" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Picture}" MaxHeight="100" Stretch="UniformToFill"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -25,5 +25,7 @@ namespace Regex_Klimov.Classes
         public string DateOfBirth { get; set; }
         
         public string PlaceOfBirth { get; set; }
+
+        public string Picture { get; set; } = "pack://application:,,,/Images/passport.jpg";
     }
 }

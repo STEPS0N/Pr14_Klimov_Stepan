@@ -1,4 +1,5 @@
-﻿using Regex_Klimov.Classes;
+﻿using Microsoft.Win32;
+using Regex_Klimov.Classes;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -64,5 +65,6 @@ namespace Regex_Klimov
                 MessageBox.Show("Выберите элемент для удаления");
             }
         }
+
     }
 }

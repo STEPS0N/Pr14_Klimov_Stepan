@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Regex_Klimov.Windows"
         mc:Ignorable="d"
-        Title="Добавить паспорт" Height="565" Width="310" MinHeight="565" MinWidth="310" ResizeMode="NoResize">
+        Title="Добавить паспорт" Height="612" Width="310" MinHeight="565" MinWidth="310" ResizeMode="NoResize">
     <Grid>
         <Label Content="#Имя:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Name" Height="23" Margin="10,36,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
@@ -26,6 +26,7 @@
         <Label Content="#Место рождения:" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="PlaceOfBirth" Height="23" Margin="10,468,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
+        <Button x:Name="ChangePicture" Click="SelectImage" Content="Выбрать изображение" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="145" Height="25"/>
         <Button x:Name="BtnAdd" Click="AddPassport" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,10" Width="75" VerticalAlignment="Bottom" Height="25"/>
     </Grid>
 </Window>
