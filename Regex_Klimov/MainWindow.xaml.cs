@@ -42,9 +42,9 @@ namespace Regex_Klimov
 
         private void Update(object sender, RoutedEventArgs e)
         {
-            if (lv_passport.SelectedIndex > -1)
+            if (lv_passport.SelectedItem is Passport selectedPassport)
             {
-                new Windows.Add(lv_passport.SelectedItems as Classes.Passport).ShowDialog();
+                new Windows.Add(selectedPassport).ShowDialog();
             }
             else
             {
@@ -57,10 +57,11 @@ namespace Regex_Klimov
             if (lv_passport.SelectedIndex > -1)
             {
                 Passports.Remove(lv_passport.SelectedItem as Classes.Passport);
+                LoadPassport();
             }
             else
             {
-                MessageBox.Show("Выберите элемент для изменения");
+                MessageBox.Show("Выберите элемент для удаления");
             }
         }
     }

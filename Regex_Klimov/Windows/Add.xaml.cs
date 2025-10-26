@@ -35,27 +35,63 @@ namespace Regex_Klimov.Windows
 
                 this.EditPassport = EditPassport;
 
-                BtnAdd.Content = "Изменить";
+                BtnAdd.Content = "Сохранить";
             }
         }
 
         private void AddPassport(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(Name.Text) || !Classes.Common.CheckRegex.Match("^/А-ЯЁ/[а-яё]*$", Name.Text))
+            if (string.IsNullOrEmpty(Name.Text) || !Classes.Common.CheckRegex.Match("^[А-ЯЁ][а-яё]*$", Name.Text))
             {
                 MessageBox.Show("Неправильно указано имя пользователя!");
                 return;
             }
 
-            if (string.IsNullOrEmpty(Firstname.Text) || !Classes.Common.CheckRegex.Match("^/А-ЯЁ/[а-яё]*$", Firstname.Text))
+            if (string.IsNullOrEmpty(Firstname.Text) || !Classes.Common.CheckRegex.Match("^[А-ЯЁ][а-яё]*$", Firstname.Text))
             {
                 MessageBox.Show("Неправильно указана фамилия пользователя!");
                 return;
             }
 
-            if (string.IsNullOrEmpty(Lastname.Text) || !Classes.Common.CheckRegex.Match("^/А-ЯЁ/[а-яё]*$", Lastname.Text))
+            if (string.IsNullOrEmpty(Lastname.Text) || !Classes.Common.CheckRegex.Match("^[А-ЯЁ][а-яё]*$", Lastname.Text))
             {
                 MessageBox.Show("Неправильно указано отчество пользователя!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Issued.Text) || !Classes.Common.CheckRegex.Match("^[А-ЯЁ0-9\\s]*$", Issued.Text))
+            {
+                MessageBox.Show("Неправильно указано кем выдан паспорт!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(DateOfIssued.Text) || !Classes.Common.CheckRegex.Match("^\\d{2}[.]\\d{2}[.]\\d{4}$", DateOfIssued.Text))
+            {
+                MessageBox.Show("Неправильно указана дата выдачи паспорта!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(DepartmentCode.Text) || !Classes.Common.CheckRegex.Match("^\\d{3}[-]\\d{3}$", DepartmentCode.Text))
+            {
+                MessageBox.Show("Неправильно указан код подразделения!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(SeriesAndNumber.Text) || !Classes.Common.CheckRegex.Match("^\\d{4}[- ]\\d{6}$", SeriesAndNumber.Text))
+            {
+                MessageBox.Show("Неправильно указаны серия и номер паспорта!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(DateOfBirth.Text) || !Classes.Common.CheckRegex.Match("^\\d{2}[.]\\d{2}[.]\\d{4}$", DateOfBirth.Text))
+            {
+                MessageBox.Show("Неправильно указана дата рождения гражданина!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(PlaceOfBirth.Text) || !Classes.Common.CheckRegex.Match("^[А-Яа-яЁё0-9.\\-, ]*$", PlaceOfBirth.Text))
+            {
+                MessageBox.Show("Неправильно указано место рождения гражданина!");
                 return;
             }
 
@@ -75,7 +111,7 @@ namespace Regex_Klimov.Windows
             EditPassport.DateOfBirth = DateOfBirth.Text;
             EditPassport.PlaceOfBirth = PlaceOfBirth.Text;
 
-            MainWindow.init.Passports.LoadPassport();
+            MainWindow.init.LoadPassport();
             this.Close();
         }
     }
