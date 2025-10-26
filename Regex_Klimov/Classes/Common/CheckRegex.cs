@@ -11,7 +11,7 @@ namespace Regex_Klimov.Classes.Common
     {
         public static bool Match(string Pattern, string Input)
         {
-            Match m = Regex.Match(Pattern, Input);
+            Match m = Regex.Match(Input, Pattern);
             return m.Success;
         }
     }
