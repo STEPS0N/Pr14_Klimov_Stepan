@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regex_Klimov", "Regex_Klimov\Regex_Klimov.csproj", "{AE3D024A-4549-4F06-91D8-A8101494B2F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE3D024A-4549-4F06-91D8-A8101494B2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3D024A-4549-4F06-91D8-A8101494B2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3D024A-4549-4F06-91D8-A8101494B2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3D024A-4549-4F06-91D8-A8101494B2F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1EF01AD-9236-4D9A-929B-B87A32F7B938}
+	EndGlobalSection
+EndGlobal
